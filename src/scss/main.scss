@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+$primary-colour: #2A3335;
+$secondary-colour: #0A5EB0;
+$tertiary-colour: #0A97B0;
+
+h1 {
+  font-weight: 100;
+  font-size: 40px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 100;
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+h3 {
+  font-weight: 100;
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+p,
+a {
+  font-size: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-variation-settings: "wdth" 100;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  animation: colourOnHover 0.5s forwards;
+}
+
+body {
+  background-color: $primary-colour;
+  min-height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main-content {
+  color: white;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-grow: 1;
+}
+
+.left-section {
+  text-align: right;
+  border-right: 1px solid #FFFFFF;
+  padding: 3rem;
+  flex-wrap: nowrap;
+}
+
+.right-section {
+  padding: 3rem;
+}
+
+.title-name,
+.email-link {
+  white-space: nowrap;
+  /* Prevent text from wrapping within elements*/
+}
+
+.icons {
+  vertical-align: middle;
+}
+
+.wrapper {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+  }
+}
+
+.introduction-view {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 630px) {
+  .left-section {
+    border: none;
+    text-align: center;
+  }
+
+  .email-link {
+    width: auto;
+  }
+
+  .right-section {
+    text-align: center;
+  }
+}
+
+
+@keyframes colourOnHover {
+  0% {
+    color: white;
+  }
+
+  100% {
+    color: $tertiary-colour;
+  }
+}
