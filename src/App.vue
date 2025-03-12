@@ -34,13 +34,13 @@ function fadeOutComponent(componentClass: string) {
             <div class="divider"></div>
             <nav>
                 <button
-                    class="route-buttons"
+                    class="route-buttons nav-items"
                     @click="routeToHome"
                 >
                     <a>Home</a>
                 </button>
                 <button
-                    class="route-buttons"
+                    class="route-buttons nav-items"
                     @click="routeToWorkHistory"
                 >
                     <a>Work History</a>

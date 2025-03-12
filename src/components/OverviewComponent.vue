@@ -1,13 +1,78 @@
 <script setup lang="ts">
-// defineProps<{
-//   msg: string
-// }>()
+import { ref, watch } from 'vue'
+
+const firstName = ref('Samson')
+const surname = ref('Millward')
+const showInput = ref(false)
+const newName = ref('')
+const messages = ref({
+  0: 'Well, I guess enter a new name here:',
+  1: 'Alright, I\'ll give you another chance',
+  2: 'Last chance...'
+})
+function clicked(letter: string) {
+  const letterToRemove = letter.slice(-1)
+  if (letter.includes('first')) {
+    firstName.value = firstName.value.replace(letterToRemove, '')
+    console.log(firstName.value, 'firstname')
+  }
+  if (letter.includes('last')) {
+    surname.value = surname.value.replace(letterToRemove, '')
+    console.log(surname.value, 'surname')
+  }
+}
+watch(firstName, async (newName) => {
+  if (newName.length === 0) {
+    triggerEmptyName();
+  }
+});
+watch(surname, async (newName) => {
+  if (newName.length === 0) {
+    triggerEmptyName();
+  }
+});
+function triggerEmptyName() {
+  if (firstName.value.length == 0 && surname.value.length == 0) {
+    showInput.value = true;
+  }
+}
+function submitNewName() {
+  firstName.value = newName.value;
+  showInput.value = false;
+}
 </script>
 
 <template>
 
   <div class="container-fluid">
-    <h1>Samson Millward</h1>
+    <div class="name-destroy">
+      <div v-show="showInput">
+
+        <label for="newNameInput">
+          <p>{{ messages['0'] }}</p>
+        </label>
+        <input
+          name="newNameInput"
+          class="newNameInput"
+          v-model="newName"
+        />
+        <button @click="submitNewName">Confirm New Name</button>
+      </div>
+      <h1
+        class="name-title"
+        @click="clicked(`first-${letter}`)"
+        v-for="letter in firstName"
+        :key="`first-${letter}`"
+      >{{ letter }}</h1>
+      <span>&nbsp;&nbsp;</span> <!-- Add this line to insert a space -->
+      <h1
+        class="name-title"
+        @click="clicked(`last-${letter}`)"
+        v-for="letter in surname"
+        :key="`last-${letter}`"
+      >{{ letter }}</h1>
+    </div>
+
     <p>Full Stack Software Engineer (Vue/Python)</p>
     <div class="links">
 

@@ -11,6 +11,8 @@ h1 {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     color: white;
+    user-select: none;
+    cursor: pointer;
 }
 
 h2 {
@@ -27,6 +29,7 @@ h3 {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     color: white;
+
 }
 
 p,
@@ -47,6 +50,16 @@ a:hover {
     text-decoration: none;
     animation: colourOnHover 0.5s forwards;
 }
+
+.newNameInput {
+    height: 30px;
+}
+
+.name-destroy {
+    display: flex;
+}
+
+.name-title {}
 
 body {
     background-color: $primary-colour;
@@ -114,7 +127,7 @@ body {
     }
 
     &--right {
-        width: 500px;
+        width: 600px;
     }
 }
 
@@ -135,6 +148,12 @@ body {
 
     .right-section {
         text-align: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wrapper {
+        flex-direction: column;
     }
 }
 
