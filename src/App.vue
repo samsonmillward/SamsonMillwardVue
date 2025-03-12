@@ -1,6 +1,29 @@
 <script lang="ts" setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView, useRouter } from 'vue-router'
 import OverviewComponent from './components/OverviewComponent.vue'
+
+const router = useRouter()
+
+function routeToWorkHistory() {
+    fadeOutComponent('introduction-view');
+    setTimeout(() => {
+        router.push({ path: '/work-history', replace: true })
+    }, 500);
+}
+
+function routeToHome() {
+    fadeOutComponent('work-history');
+    setTimeout(() => {
+        router.push({ path: '/', replace: true })
+    }, 500);
+}
+
+function fadeOutComponent(componentClass: string) {
+    const element = document.querySelector(`.${componentClass}`);
+    if (element) {
+        element.classList.add('hide');
+    }
+}
 </script>
 
 <template>
@@ -10,8 +33,18 @@ import OverviewComponent from './components/OverviewComponent.vue'
             <OverviewComponent />
             <div class="divider"></div>
             <nav>
-                <RouterLink to="/">Home</RouterLink>
-                <RouterLink to="/work-history">Work History</RouterLink>
+                <button
+                    class="route-buttons"
+                    @click="routeToHome"
+                >
+                    <a>Home</a>
+                </button>
+                <button
+                    class="route-buttons"
+                    @click="routeToWorkHistory"
+                >
+                    <a>Work History</a>
+                </button>
             </nav>
         </div>
         <div class="wrapper--right">
@@ -23,11 +56,10 @@ import OverviewComponent from './components/OverviewComponent.vue'
 
 </template>
 
-
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 3s ease;
+    transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,

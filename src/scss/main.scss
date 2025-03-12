@@ -60,6 +60,17 @@ body {
     padding: 3rem;
 }
 
+.route-buttons {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    text-align: left;
+}
+
+.route-buttons:hover {
+    cursor: pointer;
+}
+
 .title-name,
 .email-link {
     white-space: nowrap;
@@ -127,6 +138,23 @@ body {
     }
 }
 
+.hide {
+    animation: fade 0.5s forwards;
+}
+
+.show {
+    animation: fade 0.5s backwards;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0%;
+    }
+}
 
 @keyframes colourOnHover {
     0% {

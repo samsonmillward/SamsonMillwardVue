@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="work-history">
     <div class="appius">
       <h2>Appius International</h2>
       <h3>Frontend Software Engineer</h3>
