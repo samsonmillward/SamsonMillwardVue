@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-
+import type { Ref } from 'vue'
 const firstName = ref('Samson')
 const surname = ref('Millward')
 const showInput = ref(false)
 const newName = ref('')
-const messages = ref({
-  0: 'Well, I guess enter a new name here:',
-  1: 'Alright, I\'ll give you another chance',
-  2: 'Last chance...'
-})
+const messages = ref([
+  'Well, I guess enter a new name here:',
+  'Alright, I\'ll give you another chance',
+  'Last chance...'
+])
+
+const count: Ref<number> = ref(0);
 function clicked(letter: string) {
   const letterToRemove = letter.slice(-1)
   if (letter.includes('first')) {
@@ -39,6 +41,7 @@ function triggerEmptyName() {
 function submitNewName() {
   firstName.value = newName.value;
   showInput.value = false;
+  count.value++;
 }
 </script>
 
@@ -49,14 +52,19 @@ function submitNewName() {
       <div v-show="showInput">
 
         <label for="newNameInput">
-          <p>{{ messages['0'] }}</p>
+          <p>{{ messages[count] }}</p>
         </label>
         <input
           name="newNameInput"
           class="newNameInput"
           v-model="newName"
         />
-        <button @click="submitNewName">Confirm New Name</button>
+        <button
+          @click="submitNewName"
+          class="btn btn--confirm-name"
+        >
+          <a>Confirm New Name</a>
+        </button>
       </div>
       <h1
         class="name-title"
@@ -64,7 +72,7 @@ function submitNewName() {
         v-for="letter in firstName"
         :key="`first-${letter}`"
       >{{ letter }}</h1>
-      <span>&nbsp;&nbsp;</span> <!-- Add this line to insert a space -->
+      <span>&nbsp;&nbsp;</span>
       <h1
         class="name-title"
         @click="clicked(`last-${letter}`)"
@@ -97,6 +105,15 @@ function submitNewName() {
   </div>
 </template>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
+.name-title {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
 
+.name-title:hover {
+  transform: scale(1.2);
+  color: rgb(67, 170, 238);
+}
 </style>

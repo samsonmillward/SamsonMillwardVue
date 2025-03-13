@@ -73,14 +73,20 @@ body {
     padding: 3rem;
 }
 
-.route-buttons {
+.btn {
     background-color: transparent;
-    border: none;
-    padding: 0;
-    text-align: left;
+    border-radius: 5px;
+    margin: 0 25px;
+    border: grey 1px solid;
+
+    &--route-buttons {
+        border: none;
+        padding: 0;
+        text-align: left;
+    }
 }
 
-.route-buttons:hover {
+.btn:hover {
     cursor: pointer;
 }
 
@@ -97,8 +103,15 @@ body {
 
 .divider {
     border-left: 1px solid white;
-    height: 500px;
     margin: 0 50px;
+
+    &--sm {
+        height: 300px;
+    }
+
+    &--lg {
+        height: 500px;
+    }
 }
 
 .icons {
@@ -127,7 +140,7 @@ body {
     }
 
     &--right {
-        width: 600px;
+        width: 400px;
     }
 }
 
@@ -151,9 +164,15 @@ body {
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
     .wrapper {
         flex-direction: column;
+    }
+
+    .divider {
+        &--sm {
+            display: none;
+        }
     }
 }
 
