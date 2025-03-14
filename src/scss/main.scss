@@ -34,7 +34,7 @@ h3 {
 
 p,
 a {
-    font-size: 1.5rem;
+    font-size: 22px;
     font-family: 'Inter', sans-serif;
     font-weight: 200;
     font-variation-settings: "wdth" 100;
@@ -165,8 +165,55 @@ body {
 }
 
 @media (max-width: 1300px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    p,
+    h1,
+    h2,
+    h3 {
+        text-align: center;
+    }
+
+    .name-destroy {
+        justify-content: center;
+    }
+
     .wrapper {
         flex-direction: column;
+        gap: 0;
+
+        &--left {
+            flex-direction: column;
+        }
+
+        &--right {
+            width: auto;
+        }
+
+        nav {
+            flex-direction: row;
+            margin: 50px 0;
+        }
+    }
+
+    .links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .divider {
+        display: none;
     }
 
     .divider {
