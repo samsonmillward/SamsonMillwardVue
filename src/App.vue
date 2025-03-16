@@ -8,14 +8,14 @@ function routeToWorkHistory() {
     fadeOutComponent('introduction-view')
     setTimeout(() => {
         router.push({ path: '/work-history', replace: true })
-    }, 500)
+    }, 300)
 }
 
 function routeToHome() {
     fadeOutComponent('work-history')
     setTimeout(() => {
         router.push({ path: '/', replace: true })
-    }, 500)
+    }, 300)
 }
 
 function fadeOutComponent(componentClass: string) {
@@ -58,7 +58,7 @@ function fadeOutComponent(componentClass: string) {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.5s ease
+    transition: opacity 0.3s ease
 }
 
 .fade-enter-from,

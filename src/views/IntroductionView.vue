@@ -3,6 +3,6 @@
 
 <template>
   <div class="introduction-view">
-    <p>Full Stack Software Engineer proficient in Vue.js, Javascript, and Python</p>
+    <p>Full Stack Software Engineer proficient in Vue.js, Javascript, and Python.</p>
   </div>
 </template>
